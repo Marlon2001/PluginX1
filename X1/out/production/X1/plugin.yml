@@ -1,0 +1,13 @@
+name: X1
+description: X1
+version: 1.0
+main: me.marlon.x1.Main
+author: Marlon_366
+softdepend:
+  - SimpleClans
+  - CombatLog
+  - Vault
+  - SpigotPlugin
+commands:
+  x1:
+    description: Comando de desafios
