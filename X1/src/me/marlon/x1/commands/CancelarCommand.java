@@ -16,9 +16,7 @@ public class CancelarCommand implements Command {
 
     @Override
     public void onCommand(Player player, org.bukkit.command.Command command, String label, String... arguments) {
-        if (plugin.getDesafioManager().cancelarDesafio(player)) {
-            player.sendMessage(FileManager.getMessage("desafio_cancelado"));
-        }
+        plugin.getDesafioManager().cancelarDesafio(player);
     }
 
     @Override

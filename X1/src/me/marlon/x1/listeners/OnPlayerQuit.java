@@ -3,6 +3,8 @@ package me.marlon.x1.listeners;
 import me.marlon.x1.Main;
 import me.marlon.x1.managers.FileManager;
 import me.marlon.x1.model.Desafio;
+import me.marlon.x1.utils.StringUtils;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -19,12 +21,15 @@ public class OnPlayerQuit implements Listener {
         Player desafiado = desafio.getDesafiado();
         Player desafiante = desafio.getDesafiante();
         Player playerQuit = event.getPlayer();
+        Location arenaPosSaida = StringUtils.stringToLocation(plugin.getConfigurationManager().getPosSaida());
 
         if (desafio.isBoolDesafio()) {
             if (playerQuit.getName().equalsIgnoreCase(desafiante.getName())) {
                 plugin.getDesafioManager().vencedorDesafio(desafiado, desafiante);
             } else if (playerQuit.getName().equalsIgnoreCase(desafiado.getName())) {
                 plugin.getDesafioManager().vencedorDesafio(desafiante, desafiado);
+            } else if (desafio.getPlayersCamarote().contains(playerQuit)) {
+                playerQuit.teleport(arenaPosSaida);
             }
         }
 

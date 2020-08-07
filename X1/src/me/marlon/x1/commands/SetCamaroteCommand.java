@@ -26,6 +26,6 @@ public class SetCamaroteCommand implements Command {
 
     @Override
     public String getDescription() {
-        return FileManager.getMessage("cmd_set_camarote");
+        return FileManager.getMessage("cmd_setcamarote");
     }
 }

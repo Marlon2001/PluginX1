@@ -21,7 +21,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../Server2/plugins/Vault.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Server/plugins/Vault.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -30,7 +30,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../Server2/plugins/SimpleClans.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Server/plugins/SimpleClans.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -39,7 +39,7 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../Server2/plugins/CombatLog.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Server/plugins/CombatLog.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

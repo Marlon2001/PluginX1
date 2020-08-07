@@ -18,7 +18,7 @@ public class RejeitarDesafioCommand implements Command {
     @Override
     public void onCommand(Player mDesafiado, org.bukkit.command.Command command, String label, String... arguments) {
         if (arguments.length <= 1) {
-            mDesafiado.sendMessage(FileManager.getMessage("cmd_rejeitar2"));
+            mDesafiado.sendMessage(FileManager.getMessage("cmd_rejeitar"));
         } else {
             Player mDesafiante = plugin.getServer().getPlayer(arguments[1]);
             Desafio desafio = plugin.getDesafioManager().getDesafio();
@@ -26,13 +26,13 @@ public class RejeitarDesafioCommand implements Command {
             if (desafio.isBoolPedido() && desafio.getDesafiado().getName().equals(mDesafiado.getName())) {
                 plugin.getDesafioManager().rejeitarDesafio(mDesafiante, mDesafiado);
             } else {
-                mDesafiado.sendMessage(FileManager.getMessage("nao_ha_desafio"));
+                mDesafiado.sendMessage(FileManager.getMessage("nenhum_pedido"));
             }
         }
     }
 
     @Override
     public String getDescription() {
-        return FileManager.getMessage("cmd_rejeitar1");
+        return FileManager.getMessage("cmd_rejeitar");
     }
 }

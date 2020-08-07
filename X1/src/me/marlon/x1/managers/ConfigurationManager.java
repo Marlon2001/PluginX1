@@ -16,7 +16,9 @@ public class ConfigurationManager {
     private final int tempoFinalizar;
     private final int tempoAceitarx1;
     private final int tempox1;
+    private final boolean comandosX1;
     private final List<String> comandosPermX1;
+    private final boolean comandosCamarote;
     private final List<String> comandosPermCamarote;
 
     public ConfigurationManager() {
@@ -27,7 +29,9 @@ public class ConfigurationManager {
         this.valorDesafiar = plugin.getConfig().getInt("ValorDesafiar");
         this.tempoAceitarx1 = plugin.getConfig().getInt("TempoAceitarX1");
         this.tempox1 = plugin.getConfig().getInt("TempoX1");
+        this.comandosX1 = plugin.getConfig().getBoolean("ComandosX1");
         this.comandosPermX1 = plugin.getConfig().getStringList("ComandosPermX1");
+        this.comandosCamarote = plugin.getConfig().getBoolean("ComandosCamarote");
         this.comandosPermCamarote = plugin.getConfig().getStringList("ComandosPermCamarote");
     }
 
@@ -95,7 +99,19 @@ public class ConfigurationManager {
         return plugin.getConfig().getString("ArenaSaida");
     }
 
+    public boolean isComandosX1() {
+        return comandosX1;
+    }
+
     public List<String> getComandosPermX1() {
         return comandosPermX1;
+    }
+
+    public boolean isComandosCamarote() {
+        return comandosCamarote;
+    }
+
+    public List<String> getComandosPermCamarote() {
+        return comandosPermCamarote;
     }
 }

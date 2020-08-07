@@ -17,7 +17,7 @@ public class DesafiarCommand implements Command {
     @Override
     public void onCommand(Player mDesafiante, org.bukkit.command.Command command, String label, String... arguments) {
         if (arguments.length <= 1) {
-            mDesafiante.sendMessage(FileManager.getMessage("cmd_desafiar2"));
+            mDesafiante.sendMessage(FileManager.getMessage("cmd_desafiar"));
         } else {
             final Player mDesafiado = plugin.getServer().getPlayer(arguments[1]);
 
@@ -31,6 +31,6 @@ public class DesafiarCommand implements Command {
 
     @Override
     public String getDescription() {
-        return FileManager.getMessage("cmd_desafiar1");
+        return FileManager.getMessage("cmd_desafiar");
     }
 }

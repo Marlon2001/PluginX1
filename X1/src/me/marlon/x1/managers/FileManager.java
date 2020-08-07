@@ -10,16 +10,16 @@ public class FileManager {
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("Mensagens");
 
         if (plugin.getConfigurationManager().isPrefixMessage())
-            return section.getString("prefix") + section.getString(key);
+            return section.getString("prefix").replaceAll("&", "§") + section.getString(key).replaceAll("&", "§");
         else
-            return section.getString(key);
+            return section.getString(key).replaceAll("&", "§");
     }
 
     public static String getMessageNoPrefix(String key) {
         Main plugin = Main.getInstance();
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("Mensagens");
 
-        return section.getString(key);
+        return section.getString(key).replaceAll("&", "§");
     }
 
     public static void savePositions(String key, String loc) {

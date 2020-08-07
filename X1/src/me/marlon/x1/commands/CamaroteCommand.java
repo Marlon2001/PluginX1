@@ -3,6 +3,7 @@ package me.marlon.x1.commands;
 import me.marlon.x1.Main;
 import me.marlon.x1.managers.FileManager;
 import me.marlon.x1.model.Command;
+import me.marlon.x1.model.Desafio;
 import me.marlon.x1.utils.StringUtils;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -18,13 +19,21 @@ public class CamaroteCommand implements Command {
 
     @Override
     public void onCommand(Player player, org.bukkit.command.Command command, String label, String... arguments) {
-        Location location = StringUtils.stringToLocation(plugin.getConfigurationManager().getPosCamarote());
+        Desafio desafio = plugin.getDesafioManager().getDesafio();
+        Location posCamarote = StringUtils.stringToLocation(plugin.getConfigurationManager().getPosCamarote());
 
-        if (location != null) {
-            player.sendMessage(FileManager.getMessage("camarote_teleporte"));
-            if(!plugin.getDesafioManager().getDesafio().getPlayersCamarote().contains(player))
-                plugin.getDesafioManager().getDesafio().addPlayerCamarote(player);
-            player.teleport(location);
+        if (posCamarote != null) {
+            if (desafio.isBoolDesafio()) {
+                if (desafio.getPlayersCamarote().contains(player)) {
+                    player.sendMessage(FileManager.getMessage("camarote_jaesta"));
+                } else {
+                    desafio.addPlayerCamarote(player);
+                    player.teleport(posCamarote);
+                    player.sendMessage(FileManager.getMessage("camarote_teleporte"));
+                }
+            } else {
+                player.sendMessage(FileManager.getMessage("desafio_nao_ocorrendo"));
+            }
         } else {
             player.sendMessage(FileManager.getMessage("sem_camarote"));
         }

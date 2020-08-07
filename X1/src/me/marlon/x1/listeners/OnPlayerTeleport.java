@@ -26,7 +26,6 @@ public class OnPlayerTeleport implements Listener {
         Location posCamarote = StringUtils.stringToLocation(plugin.getConfigurationManager().getPosCamarote());
         List<Player> playersCamarote = plugin.getDesafioManager().getDesafio().getPlayersCamarote();
 
-        // Adicionar aqui se o player do teleporte for um do camarote remover ele
         if (desafio.isBoolDesafio()) {
             if (desafio.getDesafiante().getName().equals(player.getName()) || desafio.getDesafiado().getName().equals(player.getName())) {
                 assert pos1Arena != null;

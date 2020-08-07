@@ -18,17 +18,17 @@ public class EconomyManager {
 
     public boolean hasMoney(Player player, double ammountBalance) {
         if (setupEconomy()) {
-            player.sendMessage(FileManager.getMessage("vault_error"));
+            player.sendMessage(FileManager.getMessage("Plugin de Vault não carregado."));
             return true;
         } else {
             OfflinePlayer offlinePlayer = plugin.getServer().getOfflinePlayer(player.getUniqueId());
-             return !econ.has(offlinePlayer, ammountBalance);
+             return econ.has(offlinePlayer, ammountBalance);
         }
     }
 
     public boolean removeMoney(Player player, double ammountBalance) {
         if (setupEconomy()) {
-            player.sendMessage(FileManager.getMessage("vault_error"));
+            player.sendMessage(FileManager.getMessage("Plugin de Vault não carregado."));
             return false;
         } else {
             OfflinePlayer offlinePlayer = plugin.getServer().getOfflinePlayer(player.getUniqueId());
@@ -40,7 +40,7 @@ public class EconomyManager {
 
     public boolean depositMoney(Player player, double ammount) {
         if (setupEconomy()) {
-            player.sendMessage(FileManager.getMessage("vault_error"));
+            player.sendMessage(FileManager.getMessage("Plugin de Vault não carregado."));
             return false;
         } else {
             OfflinePlayer offlinePlayer = plugin.getServer().getOfflinePlayer(player.getUniqueId());

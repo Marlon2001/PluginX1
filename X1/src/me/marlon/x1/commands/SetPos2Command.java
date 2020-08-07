@@ -26,6 +26,6 @@ public class SetPos2Command implements Command {
 
     @Override
     public String getDescription() {
-        return FileManager.getMessage("cmd_pos2");
+        return FileManager.getMessage("cmd_setpos2");
     }
 }

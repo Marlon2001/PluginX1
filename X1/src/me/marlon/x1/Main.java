@@ -5,11 +5,9 @@ import me.marlon.x1.listeners.*;
 import me.marlon.x1.managers.CommandManager;
 import me.marlon.x1.managers.ConfigurationManager;
 import me.marlon.x1.managers.DesafioManager;
-import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 
 public class Main extends JavaPlugin {
 
@@ -17,7 +15,6 @@ public class Main extends JavaPlugin {
     private ConfigurationManager configurationManager;
     private CommandManager commandManager;
     private DesafioManager desafioManager;
-    private BukkitScheduler bukkitScheduler;
 
     public static Main getInstance() {
         return instance;
@@ -30,7 +27,6 @@ public class Main extends JavaPlugin {
         this.configurationManager = new ConfigurationManager();
         this.commandManager = new CommandManager();
         this.desafioManager = new DesafioManager();
-        this.bukkitScheduler = Bukkit.getScheduler();
         final PluginManager pluginManager = getServer().getPluginManager();
 
         this.commandManager.registerCommand("default", new DefaultCommand());
@@ -38,6 +34,7 @@ public class Main extends JavaPlugin {
         this.commandManager.registerCommand("aceitar", new AceitarDesafioCommand());
         this.commandManager.registerCommand("rejeitar", new RejeitarDesafioCommand());
         this.commandManager.registerCommand("camarote", new CamaroteCommand());
+        this.commandManager.registerCommand("saircamarote", new SairCamaroteCommand());
 
         this.commandManager.registerCommand("setpos1", new SetPos1Command());
         this.commandManager.registerCommand("setpos2", new SetPos2Command());
@@ -54,11 +51,19 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnEntityDamageByEntity(), instance);
         pluginManager.registerEvents(new OnPlayerQuit(), instance);
         pluginManager.registerEvents(new OnPlayerTeleport(), instance);
+
+        this.getLogger().info("Habilitando " + this.getDescription().getName() + " carregado na versão v" + this.getDescription().getVersion());
+        this.getLogger().info("Use SimpleClans: " + getConfigurationManager().isUseSimpleClan());
+        boolean combatLog = getServer().getPluginManager().getPlugin("CombatLog") != null;
+        this.getLogger().info("Use CombatLog: " + combatLog);
+        boolean vault = getServer().getPluginManager().getPlugin("Vault") != null;
+        this.getLogger().info("Use Vault: " + vault);
     }
 
     @Override
     public void onDisable() {
         HandlerList.unregisterAll();
+        desafioManager.cancelarDesafio(null);
     }
 
     public ConfigurationManager getConfigurationManager() {
@@ -71,9 +76,5 @@ public class Main extends JavaPlugin {
 
     public DesafioManager getDesafioManager() {
         return desafioManager;
-    }
-
-    public BukkitScheduler getBukkitScheduler() {
-        return bukkitScheduler;
     }
 }

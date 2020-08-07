@@ -1,80 +1,83 @@
 # Tempo para finalizar o x1 assim que alguém ganhar em segundos
-TempoFinalizar: 5
-# Se os jogadores podem qualquer tipo de teleporte
+TempoFinalizar: 30
+# Se os jogadores podem qualquer tipo de teleporte dentro do desafio
 TeleporteArena: false
 # Valor para desafiar um jogador
-ValorDesafiar: 5000
+ValorDesafiar: 1500
 # Tempo para o jogador aceitar o pedido de x1 em segundos
 TempoAceitarX1: 60
-# Duração das partidas de x1
+# Duração das partidas de x1 em segundos
 TempoX1: 300
 # Se as mensagens devem ter prefix
 PrefixMessage: true
+# Se os players no desafio podem usar algum comando
+ComandosX1: true
 # Comandos permitidos dentro da arena
 ComandosPermX1:
   - "helpop"
   - "tell"
+  - "r"
   - "g"
+# Se os players no camarote podem usar algum comando
+ComandosCamarote: true
 # Comandos permitidos dentor do camarote
 ComandosPermCamarote:
   - "helpop"
   - "tell"
   - "r"
   - "g"
+  - "camarote"
   - "saircamarote"
 
 Mensagens:
-  prefix: "§3[§cDreamX1§3] "
-  cmd_desafiar1: "§a/x1 desafiar §f- §cpara desafiar um jogador"
-  cmd_desafiar2: "§a/x1 desafiar §6(Jogador) §f- §cpara desafiar um jogador"
-  cmd_aceitar1: "§a/x1 aceitar §f- §cpara aceitar um desafio"
-  cmd_aceitar2: "§a/x1 aceitar §6(Jogador) §f- §cpara aceitar um desafio"
-  cmd_rejeitar1: "§a/x1 rejeitar §f- §cpara rejeitar um desafio"
-  cmd_rejeitar2: "§a/x1 rejeitar §6(Jogador) §f- §cpara rejeitar um desafio"
-  cmd_camarote: "§a/x1 camarote §f- §cpara assistir um desafio"
-  desafio: "§aO jogador §e{player1} §adesafiou §e{player2} §apara um x1!"
-  desafio_aceitar: "§aPara aceitar use: /x1 aceitar §e{player}"
-  desafio_rejeitar: "§aPara rejeitar use /x1 rejeitar §e{player}"
-  desafio_arregou: "§aO jogador §e{player1} §aarregou o pedido de x1 de §e{player2}"
-  desafio_aceito1: "§e{player1} §aaceitou o desafio de §e{player2}"
-  desafio_aceito2: "§aPara assistir use: /x1 camarote"
-  desafio_aguardar: "§aAguarde o desafio atual acabar!"
-  desafio_empate: "§aFim do tempo! O desafio entre §e{player1} §ae §e{player2} §aempatou!"
-  desafiar_a_si_mesmo: "§aNão é possivel desafiar a si mesmo."
-  nao_ha_desafio: "§aNão há nenhum pedido de x1!"
-  money_desafiar1: "§aVocê precisa de §6{price} §apara desafiar um jogador!"
-  money_desafiar2: "§e{player} §anão possui §6{price} §apara o desafio!"
-  camarote_teleporte: "§aTeleportado até o camarote!"
-  cmd_pos1: "§a/x1 setpos1 §f- §cpara setar a entrada da arena"
-  cmd_pos2: "§a/x1 setpos2 §f- §cpara setar a entrada da arena"
-  cmd_set_camarote: "§a/x1 setcamarote §f- §cpara setar o camarote"
-  cmd_saida: "§a/x1 setsaida §f- §cpara setar a saida"
-  cmd_cancelar: "§a/x1 cancelar §f- §cpara cancelar o desafio atual"
-  cmd_reload: "§a/x1 reload §f- §cpara recarregar o plugin"
-  pos1_setado: "§aEntrada um da arena setada!"
-  pos2_setado: "§aEntrada dois da arena setada!"
-  sem_entradas: "§aAs entradas do desafio ainda não foram setadas!"
-  sem_camarote: "§aCamarote ainda não foi setado!"
-  camarote_setado: "§aCamarote setado."
-  sem_saida: "§aA saida do desafio ainda não foi setada!"
-  saida_setada: "§aSaida setada."
-  nenhum_desafio_ocorrendo: "§aNenhum desafio ocorrendo."
-  reload: "§aPlugin recarregado!"
-  desafio_cancelado: "§aDesafio cancelado!"
-  sem_permissao: "§aSem permissão!"
-  cmd_comandobloqueado: "§aComando não permitido no x1!"
-  comando_desconhecido: "§aComando desconhecido."
-  cmd_autodesafiar: "§aVocê não pode se desafiar."
-  cmd_aguardex1: "§aAguarde o x1 atual finalizar."
-  jogador_inexistente: "§aJogador §e{player} §anão está online."
-  vault_error: "§aPlugin de Vault não carregado."
-  desafio_vencedor: "§e{player1} §avenceu o x1 contra §e{player2} §ae ganhou §6{price}!"
-  deslogou_desafio: "§aO jogador {player1} deslogou durante o pedido de X1 de {player2}."
-  teleporte_bloqueado: "§aTeleporte bloqueado na arena."
+  prefix: "&3[&cDreamX1&3] "
+  cmd_desafiar: "&a/x1 desafiar &6(jogador) &8- &cpara desafiar um jogador"
+  cmd_aceitar: "&a/x1 aceitar &6(jogador) &8- &cpara aceitar um desafio"
+  cmd_rejeitar: "&a/x1 rejeitar &6(jogador) &8- &cpara rejeitar um desafio"
+  cmd_camarote: "&a/x1 camarote &8- &cpara assistir um desafio"
+  cmd_saircamarote: "&a/x1 saircamarote &8- &cpara sair do camarote"
+  desafio: "&aO jogador &e{player1} &adesafiou &e{player2} &apara um x1!"
+  desafio_aceitar: "&aPara aceitar use: /x1 aceitar &e{player1} &apara rejeitar use /x1 rejeitar &e{player2}"
+  desafio_arregou: "&aO jogador &e{player1} &aarregou o pedido de x1 de &e{player2}"
+  desafio_aceito1: "&e{player1} &aaceitou o desafio de &e{player2}"
+  desafio_aceito2: "&aPara assistir use: /x1 camarote"
+  desafio_aguardar: "&aAguarde o desafio atual acabar;"
+  desafio_empate: "&aFim do tempo! O desafio entre &e{player1} &ae &e{player2} &aempatou!"
+  desafio_vencedor: "&e{player1} &avenceu o x1 contra &e{player2} &ae ganhou &6{price}!"
+  desafio_nao_ocorrendo: "&aNenhum desafio está ocorrendo."
+  deslogou_desafio: "&aO jogador {player1} deslogou durante o pedido de X1 de {player2}."
+  autodesafiar: "&aVocê não pode se desafiar."
+  nenhum_desafio: "&aNenhum desafio ocorrendo."
+  nenhum_pedido: "&aNão há nenhum pedido de x1."
+  money_desafiar1: "&aVocê precisa de &6{price} &apara desafiar um jogador."
+  money_desafiar2: "&e{player} &anão possui &6{price} &apara o desafio."
+  camarote_teleporte: "&aVocê foi teleportado até o camarote."
+  camarote_jaesta: "&aVocê já está no camarote."
+  camarote_saiu: "&aVocê saiu do camarote"
+  camarote_naoesta: "&aVocê não está no camarote."
+  cmd_setpos1: "&a/x1 setpos1 &8- &cpara setar a entrada da arena"
+  cmd_setpos2: "&a/x1 setpos2 &8- &cpara setar a entrada da arena"
+  cmd_setcamarote: "&a/x1 setcamarote &8- &cpara setar o camarote"
+  cmd_saida: "&a/x1 setsaida &8- &cpara setar a saida"
+  cmd_cancelar: "&a/x1 cancelar &8- &cpara cancelar o desafio atual"
+  cmd_reload: "&a/x1 reload &8- &cpara recarregar o plugin"
+  pos1_setado: "&aEntrada um da arena setada!"
+  pos2_setado: "&aEntrada dois da arena setada!"
+  sem_entradas: "&aAs entradas do desafio ainda não foram setadas."
+  camarote_setado: "&aCamarote setado!"
+  sem_camarote: "&aCamarote ainda não foi setado."
+  saida_setada: "&aSaida setada!"
+  sem_saida: "&aA saida do desafio ainda não foi setada."
+  desafio_cancelado: "&aDesafio cancelado!"
+  pedido_cancelado: "&aPedido de desafio cancelado!"
+  reload: "&aRecarregando configurações do plugin."
+  sem_permissao: "&aSem permissão!"
+  comando_bloqueado: "&aComando não permitido dentro do desafio."
+  comando_bloqueado_camarote: "&aComando não permitido dentro do camarote."
+  comando_desconhecido: "&aComando desconhecido."
+  jogador_inexistente: "&aJogador &e{player} &anão encontrado."
+  teleporte_bloqueado: "&aTeleporte bloqueado na arena."
 
-  cmd_stats: "§a/x1 stats §f- §cpara visualizar o status de desafios"
-
-    
 # Localizações da arena e camarote
 ArenaPos1: null
 ArenaPos2: null

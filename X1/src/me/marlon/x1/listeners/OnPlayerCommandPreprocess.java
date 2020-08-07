@@ -20,11 +20,30 @@ public class OnPlayerCommandPreprocess implements Listener {
         Player mDesafiado = plugin.getDesafioManager().getDesafio().getDesafiado();
 
         if (desafio.isBoolDesafio()) {
+            String command = event.getMessage().split("\\s+")[0].substring(1);
             if (mDesafiante.getName().equals(player.getName()) || mDesafiado.getName().equalsIgnoreCase(player.getName())) {
-                String command = event.getMessage().split("\\s+")[0].substring(1);
-                if ((!plugin.getConfigurationManager().getComandosPermX1().contains(command)) && !player.hasPermission("x1.admin")) {
+                if(plugin.getConfigurationManager().isComandosX1()) {
+                    if(command.equalsIgnoreCase("camarote"))
+                        event.setCancelled(true);
+                    if (!plugin.getConfigurationManager().getComandosPermX1().contains(command) && !player.hasPermission("x1.admin")) {
+                        event.setCancelled(true);
+                        player.sendMessage(FileManager.getMessage("comando_bloqueado"));
+                    }
+                } else {
+                    player.sendMessage(FileManager.getMessage("comando_bloqueado"));
                     event.setCancelled(true);
-                    player.sendMessage(FileManager.getMessage("cmd_comandobloqueado"));
+                }
+            } else if(desafio.getPlayersCamarote().contains(player)) {
+                if (plugin.getConfigurationManager().isComandosCamarote()) {
+                    if(command.equalsIgnoreCase("aceitar"))
+                        event.setCancelled(true);
+                    if (!plugin.getConfigurationManager().getComandosPermCamarote().contains(command) && !player.hasPermission("x1.admin")) {
+                        player.sendMessage(FileManager.getMessage("comando_bloqueado_camarote"));
+                        event.setCancelled(true);
+                    }
+                } else {
+                    player.sendMessage(FileManager.getMessage("comando_bloqueado_camarote"));
+                    event.setCancelled(true);
                 }
             }
         }
